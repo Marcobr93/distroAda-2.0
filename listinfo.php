@@ -47,9 +47,8 @@ $row = $queryResult->fetch(PDO::FETCH_ASSOC);
 <div class="container">
     <h1>Informacion de la distribucion</h1>
 
-    <h2> Image: <?=$row['image']; ?></h2>
-
     <ul>
+        <li><h3>Image: <?=$row['image']; ?></h3></li>
         <li><h3>Name: <?=$row['name']; ?></h3></li>
         <li><h3>Os type: <?=$row['ostype']; ?></h3></li>
         <li><h3>Based on: <?=$row['basedon']; ?></h3></li>

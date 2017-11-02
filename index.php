@@ -3,7 +3,7 @@ include_once 'config.php';
 include_once 'connect_db.php';
 include_once 'helpers.php';
 
-$queryResult = $pdo->query("SELECT id, name, ostype from distro");
+$queryResult = $pdo->query("SELECT image, id, name, ostype from distro");
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +13,7 @@ $queryResult = $pdo->query("SELECT id, name, ostype from distro");
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Distro ADA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css">
 
     <!-- Bootstrap core CSS -->
@@ -44,7 +45,7 @@ $queryResult = $pdo->query("SELECT id, name, ostype from distro");
    <table class="table table-stripped">
        <thead>
        <tr>
-           <th>ID</th>
+           <th>Image</th>
            <th>Name</th>
            <th>Os Type</th>
            <th>Information</th>
@@ -55,7 +56,7 @@ $queryResult = $pdo->query("SELECT id, name, ostype from distro");
        <tbody>
        <?php while ($row = $queryResult->fetch(PDO::FETCH_ASSOC)): ?>
            <tr>
-               <td><?= $row['id']; ?></td>
+               <td><img src="<?=$row['image']?>" alt="Logo de <?=$row['name']?>"></td>
                <td><?= $row['name']; ?></td>
                <td><?= $row['ostype']; ?></td>
                <td>
